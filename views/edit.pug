@@ -1,0 +1,113 @@
+doctype html
+html(lang="en")
+  head
+    title Upload Report | Portal
+    // Meta
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="description", content="CodedThemes")
+    meta(name="keywords", content="Admin, Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app")
+    meta(name="author", content="CodedThemes")
+    // Favicon icon
+    link(rel="icon", href="assets/images/favicon.ico", type="image/x-icon")
+    // Google font
+    link(href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800", rel="stylesheet")
+    // Required Fremwork
+    link(rel="stylesheet", type="text/css", href="/stylesheet/css/bootstrap.min.css")
+    // themify-icons line icon
+    link(rel="stylesheet", type="text/css", href="/icon/themify-icons/themify-icons.css")
+    // ico font
+    link(rel="stylesheet", type="text/css", href="/icon/icofont/css/icofont.css")
+    // Style.css
+    link(rel="stylesheet", type="text/css", href="/stylesheet/style.css")
+    // jQuery from CDN
+    script(src="https://code.jquery.com/jquery-3.6.4.min.js")
+
+  body.fix-menu
+    section.login.p-fixed.d-flex.text-center.bg-primary.common-img-bg1
+      // Container-fluid starts
+      .container-fluid
+        .row
+          .col-sm-12
+            // Authentication card start
+            .signup-card.card-block.auth-body.mr-auto.ml-auto
+              form.md-float-material
+                .auth-box
+                  .row.m-b-20
+                    .col-md-12
+                      h3.text-center.txt-primary Write your Daily report
+                  hr
+                  // Label and Text area for day selection
+                  .input-group
+                    label(for="Monday") 
+                    textarea.form-control(placeholder="Monday", rows="1", name="Monday" required)
+                    span.md-line
+
+                  .input-group
+                    label(for="Tuesday") 
+                    textarea.form-control(placeholder="Tuesday", rows="1", name="Tuesday" required)
+                    span.md-line
+
+                  .input-group
+                    label(for="Wednesday") 
+                    textarea.form-control(placeholder="Wednesday", rows="1", name="Wednesday" required)
+                    span.md-line
+
+                  .input-group
+                    label(for="Thursday") 
+                    textarea.form-control(placeholder="Thursday", rows="1", name="Thursday" required)
+                    span.md-line
+
+                  .input-group
+                    label(for="Friday") 
+                    textarea.form-control(placeholder="Friday", rows="1", name="Friday" required)
+                    span.md-linet
+
+                  .input-group
+                    label(for="Link") 
+                    textarea.form-control(placeholder="Report link", rows="1", name="link" required)
+                    span.md-linet
+                  .row.m-t-30
+                    .col-md-12
+                      // Button with "Upload" text
+                      button(type="button", class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20") Upload
+                  hr
+                  // Add this script at the end of your HTML file
+                  script.
+                    $(document).ready(function() {
+                      $("button[type='button']").click(function() {
+                        var mondayText = $("textarea[name='Monday']").val();
+                        var tuesdayText = $("textarea[name='Tuesday']").val();
+                        var wednesdayText = $("textarea[name='Wednesday']").val();
+                        var thursdayText = $("textarea[name='Thursday']").val();
+                        var fridayText = $("textarea[name='Friday']").val();
+                        var linkText = $("textarea[name='link']").val();
+
+                        if (!mondayText || !tuesdayText || !wednesdayText || !thursdayText || !fridayText || !linkText) {
+                          alert("Please fill in all fields.");
+                          return;
+                        }
+
+                        $.ajax({
+                          type: "POST",
+                          url: "/submitReport",
+                          data: {
+                            Monday: mondayText,
+                            Tuesday: tuesdayText,
+                            Wednesday: wednesdayText,
+                            Thursday: thursdayText,
+                            Friday: fridayText,
+                            link: linkText
+                          },
+                          success: function(response) {
+                            alert("Report submitted successfully!");
+                            window.location.href = '/dashboard2';
+                          },
+                          error: function(error) {
+                            alert("Error submitting report. Please try again. Details: " + error);
+                            window.location.href = '/dashboard2';
+                          }
+                        });
+                      });
+                    });

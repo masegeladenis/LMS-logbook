@@ -1,0 +1,113 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title Logbook Management System | Dashboard
+    link(rel="stylesheet", href="/stylesheet/bootstrap.min.css", media="screen")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css")
+    link(rel="stylesheet", href="/stylesheet/animate-css/animate.min.css", media="screen")
+    link(rel="stylesheet", href="/stylesheet/lobipanel/lobipanel.min.css", media="screen")
+    link(rel="stylesheet", href="/stylesheet/toastr/toastr.min.css", media="screen")
+    link(rel="stylesheet", href="/stylesheet/icheck/skins/line/blue.css")
+    link(rel="stylesheet", href="/stylesheet/icheck/skins/line/red.css")
+    link(rel="stylesheet", href="/stylesheet/icheck/skins/line/green.css")
+    link(rel="stylesheet", href="/stylesheet/main.css", media="screen")
+    script(src="js/modernizr/modernizr.min.js")
+
+  body(class="top-navbar-fixed")
+    div.main-wrapper
+      include topnav.pug
+      div.content-wrapper
+        div.content-container
+          //- include leftbar.pug
+          div.main-page
+            div.container-fluid
+              div.row.page-title-div
+                div.col-sm-6
+                  h2.title Dashboard
+
+              section.section
+                div.container-fluid
+                  div.row
+                    div.col-lg-3.col-md-3.col-sm-6.col-xs-12
+                      a.dashboard-stat.bg-primary(href="/edit")
+                        span.number.counter= reportsCount
+                        span.name weekly uploaded reports
+                        span.bg-icon
+                          i.fa.fa-book
+                      // /.dashboard-stat
+
+
+                    div.col-lg-3.col-md-3.col-sm-6.col-xs-12
+                      a.dashboard-stat.bg-danger(href="manage-results.php")
+                        span.number.counter= (reportsCount-assessedReportsCount)
+                        span.name Pending Report
+                        span.bg-icon
+                          i.fa.fa-spinner
+
+                    div.col-lg-3.col-md-3.col-sm-6.col-xs-12
+                      a.dashboard-stat.bg-success(href="manage-results.php")
+                        span.number.counter= assessedReportsCount
+                        span.name Assesed Report
+                        span.bg-icon
+                          i.fa.fa-check-double
+                    
+                    
+
+    // ========== COMMON JS FILES ==========
+    script(src="js/jquery/jquery-2.2.4.min.js")
+    script(src="js/jquery-ui/jquery-ui.min.js")
+    script(src="js/bootstrap/bootstrap.min.js")
+    script(src="js/pace/pace.min.js")
+    script(src="js/lobipanel/lobipanel.min.js")
+    script(src="js/iscroll/iscroll.js")
+
+    // ========== PAGE JS FILES ==========
+    script(src="js/prism/prism.js")
+    script(src="js/waypoint/waypoints.min.js")
+    script(src="js/counterUp/jquery.counterup.min.js")
+    script(src="js/amcharts/amcharts.js")
+    script(src="js/amcharts/serial.js")
+    script(src="js/amcharts/plugins/export/export.min.js")
+    link(rel="stylesheet", href="js/amcharts/plugins/export/export.css", type="text/css", media="all")
+    script(src="js/amcharts/themes/light.js")
+    script(src="js/toastr/toastr.min.js")
+    script(src="js/icheck/icheck.min.js")
+
+    // ========== THEME JS ==========
+    script(src="js/main.js")
+    script(src="js/production-chart.js")
+    script(src="js/traffic-chart.js")
+    script(src="js/task-list.js")
+    script.
+      $(function(){
+          // Counter for dashboard stats
+          $('.counter').counterUp({
+              delay: 10,
+              time: 1000
+          });
+
+          // Welcome notification
+          toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+          }
+          toastr["success"]( "Welcome to student Reports Management System!");
+      });
+
+

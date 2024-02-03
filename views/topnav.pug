@@ -1,0 +1,29 @@
+
+nav.navbar.top-navbar.bg-white.box-shadow
+  .container-fluid
+    .row
+      .navbar-header.no-padding
+        a.navbar-brand(href="/")
+          | SRMS | Admin
+        span.small-nav-handle.hidden-sm.hidden-xs
+          i.fa.fa-outdent
+        button.navbar-toggle.collapsed(data-toggle="collapse", data-target="#navbar-collapse-1", aria-expanded="false")
+          span.sr-only Toggle navigation
+          i.fa.fa-ellipsis-v
+        button.navbar-toggle.mobile-nav-toggle
+          i.fa.fa-bars
+      .collapse.navbar-collapse#navbar-collapse-1
+        ul.nav.navbar-nav(data-dropdown-in="fadeIn", data-dropdown-out="fadeOut")
+          li.hidden-sm.hidden-xs
+            a.user-info-handle(href="#")
+              i.fa.fa-user
+          li.hidden-sm.hidden-xs
+            a.full-screen-handle(href="#")
+              i.fa.fa-arrows-alt
+          li.hidden-xs.hidden-xs
+            // a(href="#") My Tasks
+        ul.nav.navbar-nav.navbar-right(data-dropdown-in="fadeIn", data-dropdown-out="fadeOut")
+          li
+            a(href="/logout", class="color-danger text-center")
+              i.fa.fa-sign-out
+              | Logout

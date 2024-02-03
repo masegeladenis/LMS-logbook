@@ -1,0 +1,97 @@
+.left-sidebar.bg-black-300.box-shadow
+  .sidebar-content
+    .user-info.closed
+      img(src="http://placehold.it/90/c2c2c2?text=User", alt="John Doe", class="img-circle profile-img")
+      h6.title John Doe
+      small.info PHP Developer
+    // /.user-info
+
+    .sidebar-nav
+      ul.side-nav.color-gray
+        li.nav-header
+          span Main Category
+        li
+          a(href="dashboard.php")
+            i.fa.fa-dashboard
+            span Dashboard
+          // ...
+
+        li.nav-header
+          span Appearance
+        li.has-children
+          a(href="#")
+            i.fa.fa-file-text
+            span Student Classes
+            i.fa.fa-angle-right.arrow
+          ul.child-nav
+            li
+              a(href="create-class.php")
+                i.fa.fa-bars
+                span Create Class
+            li
+              a(href="manage-classes.php")
+                i.fa.fa.fa-server
+                span Manage Classes
+            // ...
+
+        li.has-children
+          a(href="#")
+            i.fa.fa-file-text
+            span Subjects
+            i.fa.fa-angle-right.arrow
+          ul.child-nav
+            li
+              a(href="create-subject.php")
+                i.fa.fa-bars
+                span Create Subject
+            li
+              a(href="manage-subjects.php")
+                i.fa.fa.fa-server
+                span Manage Subjects
+            li
+              a(href="add-subjectcombination.php")
+                i.fa.fa-newspaper-o
+                span Add Subject Combination
+            a(href="manage-subjectcombination.php")
+              i.fa.fa-newspaper-o
+              span Manage Subject Combination
+            // ...
+
+        li.has-children
+          a(href="#")
+            i.fa.fa-users
+            span Students
+            i.fa.fa-angle-right.arrow
+          ul.child-nav
+            li
+              a(href="add-students.php")
+                i.fa.fa-bars
+                span Add Students
+            li
+              a(href="manage-students.php")
+                i.fa.fa.fa-server
+                span Manage Students
+            // ...
+
+        li.has-children
+          a(href="#")
+            i.fa.fa-info-circle
+            span Result
+            i.fa.fa-angle-right.arrow
+          ul.child-nav
+            li
+              a(href="add-result.php")
+                i.fa.fa-bars
+                span Add Result
+            li
+              a(href="manage-results.php")
+                i.fa.fa.fa-server
+                span Manage Result
+            // ...
+        li
+          a(href="change-password.php")
+            i.fa.fa.fa-server
+            span Admin Change Password
+    // /.sidebar-nav
+  // /.sidebar-content
+// /.left-sidebar
